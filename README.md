@@ -36,20 +36,44 @@ Quản lý Tài khoản Người dùng:
 
 ## 4. Tải, Dịch và Cài đặt
 
-### 4.1. Mã nguồn
-Mã nguồn của dự án được tổ chức trong thư mục `src/`.
+*Yêu cầu trước
+*Trình biên dịch C++ (ví dụ: g++ hỗ trợ C++17).*
+*Thư viện nlohmann/json (json.hpp đã có trong src/).*
+*Cấu trúc Thư mục*
+*src/: Các tệp mã nguồn.*
+*data/: Lưu trữ users.json và wallets.json.*
+*data/backups/: Lưu trữ các tệp sao lưu.*
+*Hướng dẫn Biên dịch*
+*Sao chép kho chứa:
+*bash*
 
-### 4.2. Cấu trúc tệp tin chính
-* `src/main.cpp`: Điểm vào chính của chương trình, chứa vòng lặp menu và điều hướng chính.
-* `src/UserAccount.h`, `src/UserAccount.cpp`: Định nghĩa lớp `UserAccount` quản lý thông tin người dùng.
-* `src/Wallet.h`, `src/Wallet.cpp`: Định nghĩa lớp `Wallet` (ví điểm) và cấu trúc `TransactionRecord` (bản ghi giao dịch).
-* `src/AuthService.h`, `src/AuthService.cpp`: Chứa logic nghiệp vụ liên quan đến xác thực, đăng ký, quản lý mật khẩu và OTP.
-* `src/WalletService.h`, `src/WalletService.cpp`: Chứa logic nghiệp vụ liên quan đến quản lý ví, xem số dư, chuyển điểm.
-* `src/DataStorage.h`, `src/DataStorage.cpp`: Xử lý việc đọc và ghi dữ liệu người dùng, ví từ các tệp JSON.
-* `src/Utils.h`, `src/Utils.cpp`: Chứa các hàm tiện ích chung (ví dụ: tạo ID, hash mật khẩu demo, OTP demo).
-* `src/Constants.h`: Định nghĩa các hằng số sử dụng trong dự án (tên tệp, ngưỡng đăng nhập sai).
-* `json.hpp`: Tệp header duy nhất của thư viện nlohmann/json.
-* `Makefile`: Tệp kịch bản giúp tự động hóa quá trình biên dịch.
-* `data/` (thư mục được tạo tự động):
-    * `users.json`: Lưu trữ danh sách tài khoản người dùng.
-    * `wallets.json`: Lưu trữ danh sách các ví và lịch sử giao dịch của chúng.
+Sao chép
+git clone https://github.com/<tên-người-dùng>/reward-points-system.git
+cd reward-points-system
+Biên dịch chương trình:
+bash
+
+Sao chép
+g++ -std=c++17 src/*.cpp -o reward_points
+Chạy chương trình:
+bash
+
+Sao chép
+./reward_points
+Cách Sử dụng
+Menu Chính:
+Đăng ký: Tạo tài khoản người dùng mới.
+Đăng nhập: Đăng nhập bằng tên đăng nhập và mật khẩu.
+Thoát: Đóng chương trình.
+Menu Người dùng:
+Xem Hồ sơ: Hiển thị thông tin người dùng.
+Cập nhật Hồ sơ: Cập nhật họ tên, email, số điện thoại (yêu cầu OTP).
+Thay đổi Mật khẩu: Cập nhật mật khẩu (bắt buộc đối với mật khẩu tự sinh).
+Xem Số dư: Kiểm tra số dư ví.
+Chuyển Điểm: Chuyển điểm sang ví khác (yêu cầu OTP).
+Xem Lịch sử Giao dịch: Hiển thị các bản ghi giao dịch.
+Menu Quản trị viên (dành cho người dùng admin):
+Liệt kê Người dùng: Xem danh sách tất cả người dùng.
+Tạo Người dùng: Đăng ký người dùng mới.
+Nạp Điểm: Thêm điểm vào ví của người dùng từ ví tổng.
+Khóa/Mở khóa Người dùng: Quản lý trạng thái tài khoản người dùng.
