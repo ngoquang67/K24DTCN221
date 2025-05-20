@@ -14,7 +14,7 @@ Hệ thống bao gồm các chức năng chính sau:
 
 Hệ thống cung cấp các chức năng sau:
 
-*Quản lý Tài khoản Người dùng:*
+Quản lý Tài khoản Người dùng:
 *Đăng ký tài khoản mới (bởi người dùng hoặc quản trị viên).
 *Đăng nhập bằng tên đăng nhập và mật khẩu.*
 *Thay đổi mật khẩu (bắt buộc đối với mật khẩu tự sinh trong lần đăng nhập đầu tiên).*
